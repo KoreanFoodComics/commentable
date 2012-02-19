@@ -1,0 +1,9 @@
+<%= form_for @comment ||= Commentable::Comment.new, :url => commentable_engine.comments_path, :remote => true do |comment| %>
+  <%= comment.label :body, 'Comment' %>
+  <%= comment.text_area :body %>
+  <%= fields_for :commentable, commentable do |commentable| %>
+    <%= commentable.hidden_field :id %>
+    <%= commentable.hidden_field :class, :name => 'commentable[type]' %>
+  <% end %>
+  <%= comment.submit 'Submit' %>
+<% end %>

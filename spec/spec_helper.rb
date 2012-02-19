@@ -5,6 +5,7 @@ require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/webkit'
+require 'valid_attribute'
 require 'factory_girl_rails'
 require 'bourne'
 require 'pry'

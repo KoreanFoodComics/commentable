@@ -1,4 +1,5 @@
-require "commentable/engine"
+require 'commentable/engine'
+require 'commentable/mixins'
 
 module Commentable
 end

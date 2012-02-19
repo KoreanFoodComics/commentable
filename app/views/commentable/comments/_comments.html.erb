@@ -1,0 +1,6 @@
+<div id="comments" %>
+  <%= new_comment_form_for(commentable) %>
+  <ul id="comments">
+    <%= render :partial => :comment, :collection => commentable.comments %>
+  </ul>
+</div>
