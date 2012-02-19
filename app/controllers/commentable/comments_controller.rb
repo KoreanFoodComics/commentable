@@ -13,7 +13,7 @@ module Commentable
           format.html { redirect_to main_app.url_for(@commentable) }
           # format.js   { :json => { :commentable => @comment, :success => true }, :content_type => 'application/json' }
         else
-          # format.html { redirect_to main_app.url_for(@commentable), :alert => I18n.t(:failure, :scope => [:commentable]) }
+          format.html { redirect_to main_app.url_for(@commentable), :alert => I18n.t(:failure, :scope => [:commentable]) }
           # format.js   { :json => { :commentable => @comment, :success => false }, :content_type => 'application/json' }
         end
       end

@@ -21,12 +21,12 @@ feature 'Commenting on a resource' do
     comment_form.should be_empty
   end
 
-  scenario 'Commenting with valid data and non-js' do
+  scenario 'Commenting with invalid data and non-js' do
     click_button 'Submit'
     page.should have_content 'You did not make a comment'
   end
 
-  scenario 'Commenting with valid data and js', :js => true do
+  scenario 'Commenting with invalid data and js', :js => true do
     click_button 'Submit'
     page.should have_content 'You did not make a comment'
   end
