@@ -30,6 +30,10 @@ feature 'Commenting on a resource' do
     click_button 'Submit'
     page.should have_content 'You did not make a comment'
   end
+
+  def comment_form
+    find('form#new_comment textarea').value
+  end
 end
 
 feature 'Viewing the comments for a resource' do

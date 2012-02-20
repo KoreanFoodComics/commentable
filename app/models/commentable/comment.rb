@@ -6,5 +6,9 @@ module Commentable
     validates :body, :presence => true
 
     delegate :commenter_name, :to => :commenter
+
+    def as_json(options = nil)
+      super(:methods => :commenter_name)
+    end
   end
 end

@@ -13,3 +13,31 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+  $('form#new_comment').live('ajax:success', function(xhr, data, status) {
+    if (data.success) {
+      var commenter, comment, li;
+      commenter = $('<div />', {
+        'class': 'commenter',
+        text: data.comment.commenter_name + ' said'
+      });
+
+      comment = $('<div />', {
+        'class': 'body',
+        text: data.comment.body
+      });
+
+      li = $('<li />', {
+        'class': 'comment',
+        id: 'comment-'+data.comment.id
+      }).append(commenter).append(comment);
+
+      $('ul#comments').append(li);
+      $('form#new_comment').find('textarea').val('');
+    } else {
+      $('body').append(data.message);
+    }
+  });
+})
+

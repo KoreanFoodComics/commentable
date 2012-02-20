@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Commentable::Comment do
   it { should     have_valid(:body).when('Test Body') }
   it { should_not have_valid(:body).when(nil, '') }
-  
+
   describe '#commenter_name' do
     let(:user)    { build(:user) }
     let(:comment) { build(:comment, :commenter => user) }

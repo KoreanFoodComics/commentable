@@ -11,10 +11,11 @@ module Commentable
       respond_to do |format|
         if @comment.save
           format.html { redirect_to main_app.url_for(@commentable) }
-          # format.js   { :json => { :commentable => @comment, :success => true }, :content_type => 'application/json' }
+          format.js   { render :json => { :comment => @comment, :success => true }, :content_type => 'application/json' }
         else
-          format.html { redirect_to main_app.url_for(@commentable), :alert => I18n.t(:failure, :scope => [:commentable]) }
-          # format.js   { :json => { :commentable => @comment, :success => false }, :content_type => 'application/json' }
+          message = I18n.t(:failure, :scope => [:commentable])
+          format.html { redirect_to main_app.url_for(@commentable), :alert => message }
+          format.js   { render :json => { :message => message, :success => false }, :content_type => 'application/json', :status => 299 }
         end
       end
     end
