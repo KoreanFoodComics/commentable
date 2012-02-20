@@ -38,18 +38,17 @@ end
 
 feature 'Viewing the comments for a resource' do
   background do
-    user_1 = create(:user)
-    user_2 = create(:user)
-    user_2.stubs(:commenter_name).returns('Other User')
-    @news_1 = create(:news)
-    @news_2 = create(:news)
+    user_1     = create(:user)
+    user_2     = create(:user, :name => 'Other User')
+    @news_1    = create(:news)
+    @news_2    = create(:news)
     @comment_1 = create(:comment, :commentable => @news_1, :commenter => user_1)
-    @comment_2 = create(:comment, :commentable => @news_1, :commenter => user_2)
-    @comment_3 = create(:comment, :commentable => @news_2, :commenter => user_2)
+    @comment_2 = create(:comment, :commentable => @news_1, :commenter => user_2, :body => 'Another comment')
+    @comment_3 = create(:comment, :commentable => @news_2, :commenter => user_2, :body => 'Bad comment')
   end
 
   scenario 'authenticated' do
-    visit news_path(@news)
+    visit news_path(@news_1)
     page.should     have_comment(@comment_1)
     page.should     have_comment(@comment_2)
     page.should_not have_comment(@comment_3)
@@ -57,7 +56,8 @@ feature 'Viewing the comments for a resource' do
   end
 
   scenario 'not authenticated' do
-    ApplicationController.any_instance.stubs(:current_user).returns(nil)
+    NewsController.any_instance.stubs(:current_user).returns(nil)
+    visit news_path(@news_1)
     page.should     have_comment(@comment_1)
     page.should     have_comment(@comment_2)
     page.should_not have_comment(@comment_3)

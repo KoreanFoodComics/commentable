@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-
+    name 'Test User'
   end
 
   factory :news do
