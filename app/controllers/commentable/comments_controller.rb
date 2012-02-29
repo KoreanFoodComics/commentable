@@ -1,5 +1,5 @@
 module Commentable
-  class CommentsController < ApplicationController
+  class CommentsController < ::ApplicationController
     before_filter :find_commentable
     before_filter :require_current_user
 
