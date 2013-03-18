@@ -52,7 +52,7 @@ feature 'Viewing the comments for a resource' do
     page.should     have_comment(@comment_1)
     page.should     have_comment(@comment_2)
     page.should_not have_comment(@comment_3)
-    page.should     have_new_comment_form
+    page.should     have_selector('form#new_comment')
   end
 
   scenario 'not authenticated' do
@@ -61,6 +61,6 @@ feature 'Viewing the comments for a resource' do
     page.should     have_comment(@comment_1)
     page.should     have_comment(@comment_2)
     page.should_not have_comment(@comment_3)
-    page.should_not have_new_comment_form
+    page.should_not have_selector('form#new_comment')
   end
 end

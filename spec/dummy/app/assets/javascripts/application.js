@@ -15,7 +15,7 @@
 //= require_tree .
 
 $(function() {
-  $('form#new_comment').live('ajax:success', function(xhr, data, status) {
+  $('form#new_comment').on('ajax:success', function(xhr, data, status) {
     if (data.success) {
       var commenter, comment, li;
       commenter = $('<div />', {
