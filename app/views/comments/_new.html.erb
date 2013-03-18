@@ -1,4 +1,4 @@
-<%= form_for @comment ||= Commentable::Comment.new, :url => commentable_engine.comments_path, :remote => true do |comment| %>
+<%= form_for @comment ||= Comment.new, :url => comments_path, :remote => true do |comment| %>
   <%= comment.label :body, 'Comment' %>
   <%= comment.text_area :body %>
   <%= fields_for :commentable, commentable do |commentable| %>

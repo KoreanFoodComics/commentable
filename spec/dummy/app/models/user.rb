@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  include Commentable::Mixins::Commenter
+  include Commentable::Models::Commenter
 end

@@ -7,7 +7,7 @@ FactoryGirl.define do
 
   end
 
-  factory :comment, :class => Commentable::Comment do
+  factory :comment, :class => Comment do
     body 'Test Body'
   end
 end

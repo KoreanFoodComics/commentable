@@ -1,6 +1,6 @@
 class CreateCommentableComments < ActiveRecord::Migration
   def change
-    create_table :commentable_comments do |t|
+    create_table :comments do |t|
       t.string :body
       t.integer :commenter_id
       t.string :commenter_type

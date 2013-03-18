@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20120219014853) do
 
-  create_table "commentable_comments", :force => true do |t|
+  create_table "comments", :force => true do |t|
     t.string   "body"
     t.integer  "commenter_id"
     t.string   "commenter_type"

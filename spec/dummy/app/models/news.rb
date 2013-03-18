@@ -1,3 +1,3 @@
 class News < ActiveRecord::Base
-  include Commentable::Mixins::Commentable
+  include Commentable::Models::Commentable
 end
